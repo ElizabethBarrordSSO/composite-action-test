@@ -2,13 +2,17 @@ name: 'reusable action'
 description: 'testing purposes'
 on:
   workflow_call:
+    inputs:
+      access-token:
+        required:true
+      
 jobs:
   pass-secret:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         with: 
-          access-token: ${{ secrets.EB_TEST_CONTEXT_SECRET }}
+          access-token: ${{ inputs.access-token }}
         run: |
           if [[ true ]]; then echo $access-token; else exit 1; fi
         shell: bash
