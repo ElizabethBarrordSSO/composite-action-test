@@ -2,8 +2,8 @@ name: 'reusable action'
 description: 'testing purposes'
 on:
   workflow_call:
-    inputs:
-      token:
+    secrets:
+      EB_TEST_CONTEXT_SECRET:
         required: false
 
 jobs:
@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.token }}
+      - name: test access
+        run: echo The secret ${{ secrets.EB_TEST_CONTEXT_SECRET }}
