@@ -3,16 +3,13 @@ description: 'testing purposes'
 on:
   workflow_call:
     inputs:
-      access-token:
-        required:true
-      
+      token:
+        required: false
+
 jobs:
-  pass-secret:
+  test-access:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Run a one-line script
-        with: 
-          access-token: ${{ inputs.access-token }}
-        run: |
-          if [[ true ]]; then echo $access-token; else exit 1; fi
-        shell: bash
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.token }}
