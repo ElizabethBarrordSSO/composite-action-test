@@ -2,10 +2,6 @@ name: 'reusable action'
 description: 'testing purposes'
 on:
   workflow_call:
-    secrets:
-      access-token:
-        description: 'A token passed from the caller workflow'
-        required: true
 jobs:
   pass-secret:
     runs-on: ubuntu-latest
