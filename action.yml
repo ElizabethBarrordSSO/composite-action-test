@@ -1,0 +1,11 @@
+name: 'composite action'
+description: 'testing purposes'
+runs:
+  using: "composite"
+  steps:
+    - name: Run a one-line script
+      env:
+        EB_TEST_CONTEXT_SECRET: ${{ secrets.EB_TEST_CONTEXT_SECRET }}
+      run: |
+        if [[ true ]]; then echo "test access $EB_TEST_CONTEXT_SECRET"; else exit 1; fi
+      shell: bash
