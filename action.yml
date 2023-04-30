@@ -1,5 +1,9 @@
 name: 'composite action'
 description: 'testing purposes'
+inputs:
+  eb-secret:
+    required: true
+    default: 'test'
 runs:
   using: "composite"
   steps:
