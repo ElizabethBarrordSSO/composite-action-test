@@ -11,5 +11,5 @@ runs:
       env:
         EB_TEST_CONTEXT_SECRET: ${{ inputs.eb-secret }}
       run: |
-        if [[ true ]]; then echo "$EB_TEST_CONTEXT_SECRET"; else exit 1; fi
+        if [[ true ]]; then echo $EB_TEST_CONTEXT_SECRET; else exit 1; fi
       shell: bash
