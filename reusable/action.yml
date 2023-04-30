@@ -12,4 +12,6 @@ jobs:
 
     steps:
       - name: test access
-        run: echo The secret ${{ secrets.EB_TEST_CONTEXT_SECRET }}
+        env:
+          EB_TEST_CONTEXT_SECRET: ${{ secrets.EB_TEST_CONTEXT_SECRET }}
+        run: echo The secret ${{ EB_TEST_CONTEXT_SECRET }}
