@@ -2,17 +2,17 @@ name: 'reusable action'
 description: 'testing purposes'
 on:
   workflow_call:
-    secrets:
-      access-token:
-        description: 'A token passed from the caller workflow'
-        required: true
+#    secrets:
+#      access-token:
+#        description: 'A token passed from the caller workflow'
+#        required: true
 jobs:
   pass-secret:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         env:
-          EB_TEST_CONTEXT_SECRET: ${{ secrets.access-token }}
+          EB_TEST_CONTEXT_SECRET: ${{ secrets.secrets.EB_TEST_CONTEXT_SECRET }}
         run: |
           if [[ true ]]; then echo $EB_TEST_CONTEXT_SECRET; else exit 1; fi
         shell: bash
